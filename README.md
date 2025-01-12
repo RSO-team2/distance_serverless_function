@@ -18,3 +18,7 @@ Deploying the fucntion: `doctl serverless deploy distance_serverless_function`
 
 This function serves to access the Google Maps API, specifically the Distance Matrix API, and calculate the distance and travel time required for the delivery to arrive from the restaurant to the customer.
 
+---
+
+To use the script locally, ensure that you have your `GOOGLE_MAPS_API_KEY` set in your environment variables.
+
