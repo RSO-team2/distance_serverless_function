@@ -15,10 +15,10 @@ def main(args):
     
     if "lat" in destination and "long" in destination:
         split_destination = destination.split(",")
-        destination = {
-            "lat": split_destination[0].replace("lat: ", ""),
-            "long": split_destination[1].replace("long: ", ""),
-        }
+        destination = (
+            split_destination[0].replace("lat: ", ""),
+            split_destination[1].replace("long: ", ""),
+        )
 
     # Google Maps API key
     try:
