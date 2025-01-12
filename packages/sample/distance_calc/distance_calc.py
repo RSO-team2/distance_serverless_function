@@ -13,6 +13,7 @@ def main(args):
             "statusCode": 400,
         }
     
+    # Parse latitude and logitude from the destination as defined in the order_management microservice
     if "lat" in destination and "long" in destination:
         split_destination = destination.split(",")
         destination = (
@@ -20,11 +21,11 @@ def main(args):
             split_destination[1].replace("long: ", ""),
         )
 
-    # Google Maps API key
     try:
+        # Access Google Maps API
         gmaps = googlemaps.Client(key=os.environ.get("GOOGLE_MAPS_API_KEY"))
         matrix = gmaps.distance_matrix(origin, destination)
-
+        # Return the distance and duration
         return {
             "body": {
                 "distance": matrix["rows"][0]["elements"][0]["distance"]["text"],
